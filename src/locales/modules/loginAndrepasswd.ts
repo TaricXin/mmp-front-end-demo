@@ -1,0 +1,66 @@
+// 中文
+export const zh = {
+  login: {
+    iphone: "输入手机号",
+    iemail: "输入手机号/邮箱",
+    ipasswd: "输入登录密码",
+    login: "登录",
+    repasswd: "忘记密码",
+    pemail: "请输入邮箱",
+    pepasswd: "请输入密码",
+  },
+  repasswd: {
+    repassword: "重设密码",
+    temail: "验证码将发送到您的邮箱。",
+    iemail: "输入手机号/邮箱",
+    icode: "输入验证码",
+    sendCode: "发送验证码",
+    resendCode: "重发验证码",
+    seconds: "{n}秒后重发",
+    sizePassword: "设置6至18位登录密码",
+    iiPassword: "请再次输入登录密码",
+    confirm: "确认",
+    noemail: "邮箱不能为空",
+    nocode: "验证码不能为空",
+    nopasswd: "密码不能为空",
+    Nnopasswd: "再次确认密码不能为空",
+    setlimitpasswd: "请输入6~18位数字或英文组合",
+    passwdoktologin: "密码重置成功,即将跳转登录页面!",
+    twopasswd: "两次密码不一致！！！",
+    sendcodeok: "成功发送验证码！",
+  },
+};
+
+//英文
+export const en = {
+  login: {
+    iphone: "Enter your mobile",
+    iemail: "Enter your email",
+    ipasswd: "Enter the login password",
+    login: "login",
+    repasswd: "Forgot password",
+    pemail: "Please enter email address",
+    pepasswd: "Please enter your password",
+  },
+  repasswd: {
+    repassword: "Retrieve passWord",
+    temail: "A verification code will be sent to your email。",
+    iemail: "Enter your email",
+    icode: "Enter the verification code",
+    sendCode: "Send verification code",
+    resendCode: "Resend verification code",
+    seconds: "Resend in {n} seconds",
+    sizePassword: "Set 6 to 18 digit login password",
+    iiPassword: "Please enter the login password again",
+    confirm: "confirm",
+    noemail: "The mailbox cannot be empty",
+    nocode: "The verification code cannot be empty",
+    nopasswd: "The password cannot be empty",
+    Nnopasswd: "Confirm that the password cannot be empty",
+    setlimitpasswd: "Please enter 6 to 18 digits or an English combination",
+    passwdoktologin:
+      "Password reset succeeded, the login page is about to be displayed!",
+    twopasswd: "The TWO passwords DO not match!!",
+    sendcodeok: "Verification code sent successfully!",
+  },
+};
