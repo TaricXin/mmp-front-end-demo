@@ -3,17 +3,6 @@
     <div class="main">
       <!-- 国际化 -->
       <div class="lang">
-        <section class="lang-box">
-          <img src="@/assets/common/earth.png" />
-          <select
-            v-model="langValue"
-            placeholder="请选择语言"
-            @change="switchLanguage"
-          >
-            <option label="简体中文" value="cn"></option>
-            <option label="English" value="en"></option>
-          </select>
-        </section>
       </div>
       <!-- logo -->
       <!-- <div class="logo">

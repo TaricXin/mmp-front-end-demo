@@ -81,10 +81,6 @@
         </el-form>
       </el-tab-pane>
       <el-tab-pane label="扫码登录" name="third">
-        <div style="text-align: center">
-          <img :src="qrcode" alt="" />
-          <p>使用微信扫一扫登录</p>
-        </div>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -103,7 +99,6 @@ import { handleRedirect } from "@/hooks/useLogin";
 // 导入 pinia 实例
 import { userStore } from "@/stores/user";
 import Logo from "@/assets/common/logo.png";
-import qrcode from "@/assets/demo/qrcode.png";
 import { TabsPaneContext } from "element-plus";
 // 国际化
 const langValue = ref(getLanguage() || "cn");
