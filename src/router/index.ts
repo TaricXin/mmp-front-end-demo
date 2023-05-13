@@ -47,6 +47,30 @@ const dashboardRoute: RouteRecordRaw = {
       component: () => import("@/views/dashboard.vue"),
       meta: { title: "首页", icon: "dashboard", isMenu: true },
     },
+    {
+      path: "dashboard1",
+      name: "Dashboard1",
+      component: () => import("@/views/dashboard.vue"),
+      meta: { title: "模型商城", icon: "dashboard", isMenu: true },
+    },
+    {
+      path: "dashboard2",
+      name: "Dashboard2",
+      component: () => import("@/views/dashboard.vue"),
+      meta: { title: "任务大厅", icon: "dashboard", isMenu: true },
+    },
+    {
+      path: "dashboard3",
+      name: "Dashboard3",
+      component: () => import("@/views/dashboard.vue"),
+      meta: { title: "版权中心", icon: "dashboard", isMenu: true },
+    },
+    {
+      path: "dashboard4",
+      name: "Dashboard4",
+      component: () => import("@/views/dashboard.vue"),
+      meta: { title: "个人中心", icon: "dashboard", isMenu: true },
+    },
   ],
 };
 

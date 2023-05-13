@@ -2,6 +2,7 @@
 import { computed } from "@vue/reactivity";
 import { provide, reactive, ref } from "vue";
 import HeadBar from "./HeadBar.vue";
+import FooterBar from "./FooterBar.vue";
 
 const sidebarRelated = reactive<Layout.SidebarRelated>({
   collapsed: false,
@@ -33,6 +34,7 @@ provide("loading", loading);
             </KeepAlive>
           </Transition>
         </RouterView>
+        <FooterBar></FooterBar>
       </ElMain>
     </ElContainer>
   </ElContainer>
