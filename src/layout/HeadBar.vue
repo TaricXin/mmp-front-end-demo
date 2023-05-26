@@ -64,7 +64,7 @@ function getAllShowRoute(
 </script>
 
 <template>
-  <el-header :height="'123px'">
+  <el-header :height="'90px'">
     <div class="header_box">
       <div class="header_content">
         <div class="logo_box">
@@ -88,11 +88,33 @@ function getAllShowRoute(
 
         <div class="options">
           <div class="option">
-            <img :src="Home" alt="" style="width: 42px;height: 39px;margin-right: 25px;">
-            <img :src="ShoppingCart" alt="" style="width: 38px;height: 37px;margin-right: 25px;">
-            <img :src="College" alt="" style="width: 44px;height: 46px;margin-right: 45px;">
+            <img
+              :src="Home"
+              alt=""
+              style="
+                width: 32px;
+                height: 29px;
+                margin-right: 25px;
+                margin-top: 2px;
+              "
+            />
+            <img
+              :src="ShoppingCart"
+              alt=""
+              style="width: 31px; height: 31px; margin-right: 25px"
+            />
+            <img
+              :src="College"
+              alt=""
+              style="
+                width: 30px;
+                height: 28px;
+                margin-right: 45px;
+                margin-top: 3px;
+              "
+            />
             <el-avatar
-              :size="40"
+              :size="30"
               :src="
                 UserLogo ||
                 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
@@ -117,11 +139,11 @@ function getAllShowRoute(
   z-index: 99;
   .header_box {
     background: #ffffff;
-    box-shadow: 2px 7px 12px 1px rgba(114,109,105,0.19);
+    box-shadow: 2px 7px 12px 1px rgba(114, 109, 105, 0.19);
     position: relative;
-    height: 123px;
+    height: 90px;
     .header_content {
-      height: 123px;
+      height: 90px;
       max-width: 1700px;
       min-width: 1050px;
       padding: 0 61px;
@@ -132,11 +154,12 @@ function getAllShowRoute(
       flex-wrap: nowrap;
       z-index: 99;
       .logo_box {
-        height: 123px;
+        height: 90px;
         display: flex;
+        align-items: center;
         .logo {
-          width: 208px;
-          height: 123px;
+          width: 172px;
+          height: 39px;
           cursor: pointer;
         }
       }
@@ -152,7 +175,7 @@ function getAllShowRoute(
           display: block;
           text-align: center;
           line-height: 48px;
-          font-size: 28px;
+          font-size: 20px;
           font-family: Alibaba PuHuiTi;
           font-weight: 400;
           color: #000000;
@@ -187,13 +210,11 @@ function getAllShowRoute(
           cursor: pointer;
 
           .o_icon {
-            margin-right: 16px;
-            width: 39px;
-            height: 39px;
+            margin-right: 13px;
           }
 
           .o_label {
-            font-size: 26px;
+            font-size: 18px;
             font-family: Alibaba PuHuiTi;
             font-weight: 400;
             color: #214c93;

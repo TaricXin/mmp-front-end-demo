@@ -371,7 +371,7 @@ const recommend_list = ref([
       font-family: Source Han Sans CN;
       font-weight: 400;
       color: #000000;
-      padding-top: 2.0vw;
+      padding-top: 2vw;
     }
 
     .info_item:nth-child(3) {
