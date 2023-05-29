@@ -1,28 +1,80 @@
 <template>
-  <section>
+  <div>
     <div class="search_box">
-      <div class="search_type">
-        <el-select :model-value="1" size="large" :suffix-icon="ArrowDownBold">
-          <el-option label="模型" :value="1" />
-          <el-option label="任务" :value="2" />
-        </el-select>
+      <p class="page_title">「 精选模型 」</p>
+      <p class="page_subtitle">精选模型推荐用语精选模型推荐用语</p>
+      <div class="search_content">
+        <div class="search_type">
+          <el-select :model-value="1" size="large" :suffix-icon="ArrowDownBold">
+            <el-option label="模型" :value="1" />
+            <el-option label="任务" :value="2" />
+          </el-select>
+        </div>
+        <el-input
+          v-model="data.name"
+          class="search_input"
+          placeholder="按模型名称或关键词搜索"
+        />
+        <img
+          :src="searchIcon"
+          alt=""
+          style="
+            max-width: 65px;
+            max-height: 65px;
+            width: 3vw;
+            height: 3vw;
+            cursor: pointer;
+          "
+        />
       </div>
-      <el-input
-        v-model="data.name"
-        class="search_input"
-        placeholder="按模型名称或关键词搜索"
-      />
-      <img
-        :src="searchIcon"
-        alt=""
-        style="width: 65px; height: 65px; cursor: pointer"
-      />
+    </div>
+
+    <div class="type_box">
+      <div class="type_item">
+        <p class="type_subtitle">Deploy model</p>
+        <p class="type_title">发布模型</p>
+        <div class="goto_but">
+          <el-icon :size="36"><Right /></el-icon>
+        </div>
+        <div class="type_logo">
+          <img :src="type1" alt="" style="width: 84px; height: 92px" />
+        </div>
+      </div>
+      <div class="type_item">
+        <p class="type_subtitle">Publish task</p>
+        <p class="type_title">发布任务</p>
+        <div class="goto_but">
+          <el-icon :size="36"><Right /></el-icon>
+        </div>
+        <div class="type_logo">
+          <img :src="type2" alt="" style="width: 84px; height: 92px" />
+        </div>
+      </div>
+      <div class="type_item">
+        <p class="type_subtitle">Asset library</p>
+        <p class="type_title">资产库</p>
+        <div class="goto_but">
+          <el-icon :size="36"><Right /></el-icon>
+        </div>
+        <div class="type_logo">
+          <img :src="type3" alt="" style="width: 84px; height: 92px" />
+        </div>
+      </div>
     </div>
 
     <div class="main_box">
       <p class="box_title">最新动态</p>
       <p class="box_subtitle">RECENT NEWS</p>
-      <div class="info_list"></div>
+      <div class="info_list">
+        <div class="info_item">
+          <span class="">深圳大学XX校区XX食堂精细模型</span>
+          <span class="new">03/05 17:40 出售成功</span>
+        </div>
+        <div class="info_item">
+          <span class="">深圳大学XX校区XX食堂精细模型</span>
+          <span class="new">03/05 17:40 出售成功</span>
+        </div>
+      </div>
     </div>
 
     <div class="recommend_bg">
@@ -68,47 +120,46 @@
       <div class="information_content">
         <div
           class="info_item"
-          style="min-width: 550px; width: 29vw; left: 0; top: 3.2vw"
+          style="min-width: 550px; width: 29vw; left: 1.7vw; top: 5.3vw"
         >
           <span>【MP资讯】进军元宇宙行业，旭庭推出模型套餐</span>
         </div>
         <div
           class="info_item"
-          style="min-width: 400px; width: 21vw; right: 19.58vw; top: 3.2vw"
+          style="min-width: 400px; width: 21vw; left: 42vw; top: 5.3vw"
         >
           <span>Q：如何将模型资产上传并售卖？</span>
         </div>
         <div
           class="info_item"
-          style="min-width: 480px; width: 25vw; right: -11vw; top: 3.2vw"
+          style="min-width: 480px; width: 25vw; left: 75vw; top: 5.3vw"
         >
           <span>Q：模型资产购买后可以用做商业用途吗？</span>
         </div>
         <div
           class="info_item"
-          style="min-width: 480px; width: 25vw; left: 28.18vw; bottom: 4.4vw"
+          style="min-width: 480px; width: 25vw; left: 22vw; bottom: 4.4vw"
         >
           <span>Q：模型资产购买后可以用做商业用途吗？</span>
         </div>
         <div
           class="info_item"
-          style="min-width: 480px; width: 25vw; right: -10px; bottom: 4.4vw"
+          style="min-width: 480px; width: 25vw; left: 60vw; bottom: 4.4vw"
         >
           <span>Q：模型资产购买后可以用做商业用途吗？</span>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 <script setup lang="ts">
-import { ArrowDownBold } from "@element-plus/icons-vue";
+import { ArrowDownBold, Right } from "@element-plus/icons-vue";
 import searchIcon from "@/assets/home/search_icon.png";
 import type1 from "@/assets/home/type1.png";
 import type2 from "@/assets/home/type2.png";
 import type3 from "@/assets/home/type3.png";
 import pre from "@/assets/home/pre.png";
 import down from "@/assets/home/down.png";
-import info2 from "@/assets/home/info2.png";
 
 const data = ref({
   name: "",
@@ -132,63 +183,89 @@ const recommend_list = ref([
 
 <style lang="scss" scoped>
 .search_box {
-  width: 67vw;
-  margin: auto;
-  height: 109px;
-  background: #ffffff;
-  border-radius: 54px;
-  margin-top: 56px;
-  box-shadow: 0px 0px 4px 5px rgb(226 224 222 / 19%);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  padding-right: 51px;
-  .search_type {
-    width: 226px;
-    height: 109px;
+  height: 720px;
+  max-height: 66.6vh;
+  background-image: url("../assets/bg1.png");
+  // background-position: center;
+  background-size: cover;
+  padding-top: 20vh;
+
+  .page_title {
+    font-size: 2.4rem;
+    font-family: ShiShangZhongHeiJianTi;
+    color: #010000;
+    text-align: center;
+  }
+
+  .page_subtitle {
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: ShiShangZhongHeiJianTi;
+    color: #010000;
+    opacity: 0.8;
+    margin-top: 5.4vh;
+  }
+  .search_content {
+    margin: 10.3vh auto 0;
     display: flex;
     align-items: center;
+    width: 67vw;
+    height: 109px;
+    max-height: 10vh;
+    background: #ffffff;
     border-radius: 54px;
-    background-color: #f4a132;
-    padding: 0 13px 0 28px;
-    :deep(.el-select) {
-      margin-left: 3px;
-      width: 180px;
-      .el-input__wrapper {
-        background-color: transparent;
-        border: unset;
-        box-shadow: none !important;
+    box-shadow: 0px 0px 4px 5px rgb(226 224 222 / 19%);
+    overflow: hidden;
+    padding-right: 51px;
+    .search_type {
+      width: 11.7vw;
+      max-width: 226px;
+      height: 109px;
+      max-height: 10vh;
+      display: flex;
+      align-items: center;
+      border-radius: 54px;
+      background-color: #f4a132;
+      padding: 0 0 4px 14px;
+      :deep(.el-select) {
+        margin-left: 3px;
+        width: 180px;
+        .el-input__wrapper {
+          background-color: transparent;
+          border: unset;
+          box-shadow: none !important;
 
-        .el-input__inner {
-          font-size: 36px;
-          font-family: Alibaba PuHuiTi;
-          font-weight: bold;
-          color: #ffffff;
-          letter-spacing: 14px;
-        }
-        .el-select__caret {
-          font-size: 36px;
-          color: #ffffff;
+          .el-input__inner {
+            font-size: 2rem;
+            font-family: Alibaba PuHuiTi;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 14px;
+          }
+          .el-select__caret {
+            font-size: 2rem;
+            color: #ffffff;
+          }
         }
       }
     }
-  }
 
-  :deep(.search_input) {
-    .el-input__wrapper {
-      box-shadow: none !important;
-      padding: 0 66px;
-      .el-input__inner {
-        outline: 0;
-        font-size: 32px;
-        font-family: Alibaba PuHuiTi;
-        font-weight: 400;
-        color: #000000;
-        height: 54px;
-      }
-      .el-input__inner::placeholder {
-        letter-spacing: 10px;
-        color: rgb(0 0 0 / 30%);
+    :deep(.search_input) {
+      .el-input__wrapper {
+        box-shadow: none !important;
+        padding: 0 66px;
+        .el-input__inner {
+          outline: 0;
+          font-size: 1.6rem;
+          font-family: Alibaba PuHuiTi;
+          font-weight: 400;
+          color: #000000;
+          height: 54px;
+        }
+        .el-input__inner::placeholder {
+          letter-spacing: 10px;
+          color: rgb(0 0 0 / 30%);
+        }
       }
     }
   }
@@ -200,14 +277,14 @@ const recommend_list = ref([
   margin: auto;
   .box_title {
     text-align: center;
-    font-size: 50px;
+    font-size: 38px;
     font-family: ShiShangZhongHeiJianTi;
     font-weight: 400;
     color: #000000;
   }
   .box_subtitle {
     text-align: center;
-    font-size: 28px;
+    font-size: 20px;
     font-family: Source Han Sans CN;
     font-weight: 400;
     color: rgb(0 0 0 / 60%);
@@ -223,6 +300,9 @@ const recommend_list = ref([
       font-family: Source Han Sans CN;
       font-weight: 400;
       color: #000000;
+      border-right: 1px solid #999999;
+      text-align: center;
+      cursor: pointer;
       .news_title {
       }
       .new {
@@ -231,7 +311,73 @@ const recommend_list = ref([
         font-weight: 400;
         color: #000000;
         opacity: 0.6;
+        margin-left: 43px;
       }
+    }
+    .info_item:nth-child(2) {
+      border-right: unset;
+    }
+  }
+}
+
+.type_box {
+  background: #faf8f6;
+  height: 54vh;
+  max-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .type_item {
+    width: 24vw;
+    max-width: 464.3px;
+    height: 252px;
+    margin: 27px;
+    background: #ffffff;
+    box-shadow: 2px 8px 17px 4px rgba(114, 109, 105, 0.19);
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+    padding: 41px 39px 35px 41px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .type_title {
+      font-size: 30px;
+      font-family: ShiShangZhongHeiJianTi;
+      font-weight: 400;
+      color: #010000;
+      margin-bottom: 8px;
+    }
+    .type_subtitle {
+      font-size: 14px;
+      font-family: Adobe Heiti Std;
+      font-weight: normal;
+      color: #908f8f;
+    }
+
+    .goto_but {
+      background-color: #e1e1e1;
+      height: 57px;
+      width: 87px;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .type_logo {
+      position: absolute;
+      right: 39px;
+      bottom: 35px;
+    }
+  }
+
+  .type_item:nth-child(1) {
+    .type_subtitle {
+      color: #f4a133;
+    }
+    .goto_but {
+      background-color: rgb(247 238 228);
+      color: #f4a133;
     }
   }
 }
@@ -245,13 +391,13 @@ const recommend_list = ref([
     margin: auto;
 
     .box_title {
-      font-size: 50px;
+      font-size: 38px;
       font-family: ShiShangZhongHeiJianTi;
       font-weight: 400;
       color: #000000;
     }
     .box_subtitle {
-      font-size: 28px;
+      font-size: 20px;
       font-family: Source Han Sans CN;
       font-weight: 400;
       color: rgb(0 0 0 / 60%);
@@ -307,26 +453,28 @@ const recommend_list = ref([
 }
 
 .information_box {
-  max-width: 85vw;
   text-align: center;
   margin: auto;
+  padding: 0 40px;
+  overflow: hidden;
   .box_title {
-    margin-top: 86px;
-    font-size: 50px;
+    margin-top: 78px;
+    font-size: 38px;
     font-family: ShiShangZhongHeiJianTi;
     font-weight: 400;
     color: #000000;
   }
   .box_subtitle {
-    font-size: 28px;
+    font-size: 20px;
     font-family: Source Han Sans CN;
     font-weight: 400;
     color: rgb(0 0 0 / 60%);
   }
 
   .information_content {
-    min-height: 22.5vw;
+    height: 22.5vw;
     position: relative;
+    min-height: 380px;
 
     .info_item {
       position: absolute;
@@ -339,7 +487,7 @@ const recommend_list = ref([
       font-family: Source Han Sans CN;
       font-weight: 400;
       color: #000000;
-      padding-top: 1vw;
+      padding-top: 1.5vw;
     }
 
     .info_item:nth-child(3),
