@@ -20,9 +20,37 @@
     </div>
 
     <div class="main_box">
-      <p class="box_title">最新动态</p>
-      <p class="box_subtitle">RECENT NEWS</p>
-      <div class="info_list"></div>
+      <div class="main_bg"></div>
+      <div class="info_box">
+        <div class="type_list">
+          <div class="type_item">
+            <div>
+              <img :src="type1" alt="" />
+              <p>发布模型</p>
+            </div>
+          </div>
+          <div class="type_item">
+            <div>
+              <img :src="type2" alt="" />
+              <p>发布任务</p>
+            </div>
+          </div>
+          <div class="type_item">
+            <div>
+              <img :src="type3" alt="" />
+              <p>资产库</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="news_list">
+          <p class="news_title">最新动态</p>
+          <p class="new_item" v-for="item in news">
+            <span class="new">{{ item.l1 }}</span>
+            <span class="aciton">{{ item.l2 }}</span>
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="recommend_bg">
@@ -195,42 +223,72 @@ const recommend_list = ref([
 }
 
 .main_box {
-  max-width: 1500px;
-  padding: 90px 40px 106px;
-  margin: auto;
-  .box_title {
-    text-align: center;
-    font-size: 50px;
-    font-family: ShiShangZhongHeiJianTi;
-    font-weight: 400;
-    color: #000000;
-  }
-  .box_subtitle {
-    text-align: center;
-    font-size: 28px;
-    font-family: Source Han Sans CN;
-    font-weight: 400;
-    color: rgb(0 0 0 / 60%);
+  display: flex;
+  max-width: 85vw;
+  margin: 119px auto 104px;
+  .main_bg {
+    flex: 1;
+    min-height: 29.5vw;
+    box-shadow: 1px 7px 12px 1px rgba(114, 109, 105, 0.41);
+    background-image: url("../assets/bg1.png");
+    background-position: center;
+    background-size: cover;
   }
 
-  .info_list {
-    margin-top: 87px;
-    display: flex;
-    flex-wrap: wrap;
-    .info_item {
-      width: 50%;
-      font-size: 22px;
-      font-family: Source Han Sans CN;
-      font-weight: 400;
-      color: #000000;
-      .news_title {
+  .info_box {
+    padding-left: 42px;
+    width: 32vw;
+    .type_list {
+      display: flex;
+      justify-content: space-between;
+      .type_item {
+        width: 7.6vw;
+        height: 7.6vw;
+        box-shadow: 0px 2px 9px 1px rgba(114, 109, 105, 0.14);
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        img {
+          width: 3.59vw;
+          height: 3.59vw;
+        }
+        p {
+          font-size: 22px;
+          font-family: Alibaba PuHuiTi;
+          font-weight: 500;
+          color: #010000;
+        }
       }
-      .new {
-        font-size: 22px;
-        font-family: Source Han Sans CN;
+    }
+
+    .news_list {
+      margin-top: 1.9vw;
+      padding: 1.3vw 1.9vw;
+      box-shadow: 0px 2px 9px 1px rgba(114, 109, 105, 0.14);
+      border-radius: 10px;
+      .news_title {
+        font-size: 40px;
+        font-family: ShiShangZhongHeiJianTi;
         font-weight: 400;
         color: #000000;
-        opacity: 0.6;
+      }
+      .new_item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1.5vw;
+        font-size: 1.5rem;
+        font-family: Source Han Sans CN;
+        font-weight: 400;
+        .new {
+          color: #000000;
+        }
+        .aciton {
+          color: #000000;
+        }
       }
     }
   }
