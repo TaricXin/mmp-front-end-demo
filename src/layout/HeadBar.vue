@@ -35,9 +35,10 @@ watch(route, (currentRoute) => {
 
 function logout() {
   if (loading) loading.logout = true;
-  user.logout(t("sidebar.Logoutsucceeded")).then((_) => {
-    router.replace("/passport/login");
-  });
+  // user.logout(t("sidebar.Logoutsucceeded")).then((_) => {
+  //   router.replace("/passport/login");
+  // });
+  router.replace("/passport/login");
 }
 
 function getAllShowRoute(
@@ -120,6 +121,7 @@ function getAllShowRoute(
                 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
               "
               class="o_icon"
+              @click="logout"
             />
             <span class="o_label">admin</span>
           </div>
@@ -142,11 +144,11 @@ function getAllShowRoute(
     box-shadow: 2px 7px 12px 1px rgba(114, 109, 105, 0.19);
     position: relative;
     height: 90px;
+    min-width: 1230px;
     .header_content {
       height: 90px;
       max-width: 1700px;
-      min-width: 1050px;
-      padding: 0 61px;
+      padding: 0 40px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -170,8 +172,8 @@ function getAllShowRoute(
         align-items: center;
         justify-content: center;
         .route-tab {
-          margin: 0 14px;
-          padding: 0 14px;
+          margin: 0 12px;
+          padding: 0 12px;
           display: block;
           text-align: center;
           line-height: 48px;

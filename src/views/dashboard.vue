@@ -210,6 +210,7 @@ const recommend_list = ref([
     display: flex;
     align-items: center;
     width: 67vw;
+    min-width: 960px;
     height: 109px;
     max-height: 10vh;
     background: #ffffff;
@@ -220,6 +221,7 @@ const recommend_list = ref([
     .search_type {
       width: 11.7vw;
       max-width: 226px;
+      min-width: 160px;
       height: 109px;
       max-height: 10vh;
       display: flex;
@@ -273,6 +275,7 @@ const recommend_list = ref([
 
 .main_box {
   max-width: 1500px;
+  min-width: 1230px;
   padding: 90px 40px 106px;
   margin: auto;
   .box_title {
@@ -330,6 +333,7 @@ const recommend_list = ref([
   .type_item {
     width: 24vw;
     max-width: 464.3px;
+    min-width: 300px;
     height: 252px;
     margin: 27px;
     background: #ffffff;
@@ -387,6 +391,7 @@ const recommend_list = ref([
   padding: 53px 40px 8px;
   .recommend_box {
     max-width: 1500px;
+    min-width: 1230px;
     text-align: center;
     margin: auto;
 
@@ -487,7 +492,12 @@ const recommend_list = ref([
       font-family: Source Han Sans CN;
       font-weight: 400;
       color: #000000;
-      padding-top: 1.5vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      span {
+        margin-bottom: 24px;
+      }
     }
 
     .info_item:nth-child(3),

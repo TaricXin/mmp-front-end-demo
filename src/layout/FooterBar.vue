@@ -50,7 +50,7 @@
     border-right: 1px solid #000;
   }
 
-  .tip:last-child {
+  .tip:nth-child(4) {
     border-right: unset;
   }
 }
