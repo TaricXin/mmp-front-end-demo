@@ -1,14 +1,12 @@
 <template>
-  <div class="logo">
-    <h2>学生注册</h2>
-  </div>
-  <div>
+  <div class="form_box">
+    <h3>注册您的账户</h3>
     <el-form :model="form" :rules="rules" ref="RedactForm">
       <!-- 邮件 -->
       <el-form-item prop="email">
         <el-input
           v-model.trim="form.email"
-          class="input"
+          class="form-input"
           :placeholder="$t('repasswd.iemail')"
         />
       </el-form-item>
@@ -16,7 +14,7 @@
       <el-form-item prop="emailVerificationCode">
         <el-input
           v-model="form.emailVerificationCode"
-          class="input"
+          class="form-input"
           :placeholder="$t('repasswd.icode')"
         >
           <!-- 验证码 -->
@@ -39,7 +37,7 @@
           v-model.trim="form.changePassword"
           show-password
           :placeholder="$t('repasswd.sizePassword')"
-          class="input"
+          class="form-input"
           autocomplete="new-password"
         />
       </el-form-item>
@@ -49,15 +47,20 @@
           v-model.trim="form.changePasswordTo"
           show-password
           :placeholder="$t('repasswd.iiPassword')"
-          class="input"
+          class="form-input"
           autocomplete="new-password"
         />
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit" class="signin">{{
+        <el-button type="primary" @click="onSubmit" class="sub_but">{{
           $t("repasswd.confirm")
         }}</el-button>
       </el-form-item>
+      <p class="separator"><span>第三方登录</span></p>
+      <div class="roads">
+        <img src="@/assets/passport/wechat_logo.png" alt="" />
+        <img src="@/assets/passport/qq_logo.png" alt="" />
+      </div>
       <p style="display: flex; justify-content: flex-end">
         <span>
           已有账号？
@@ -242,49 +245,5 @@ function checkEmail(rule: any, value: any, callback: any) {
 }
 </script>
 <style scoped lang="scss">
-// 去除浏览器默认行为--改变输入框
-:deep(.el-input__inner:-webkit-autofill) {
-  box-shadow: inset 0px 100px #272727;
-  -webkit-text-fill-color: #fff;
-  caret-color: #fff; // 设置光标颜色
-}
-.boxs {
-  width: 100%;
-  height: 100%;
-  background-color: #272727;
-  display: flex;
-  justify-content: center;
-  // align-items: center;
-  // 去除浏览器默认行为--改变输入框
-  :deep(.el-input__inner:-webkit-autofill) {
-    box-shadow: inset 0px 100px #272727;
-    -webkit-text-fill-color: #fff;
-  }
-  // 按键
-  .signin {
-    width: 100%;
-  }
-
-  .logo {
-    text-align: center;
-    margin-bottom: 16px;
-  }
-
-  // 输入框
-  :deep(.el-input__wrapper) {
-    background-color: #272727;
-    color: #fff;
-  }
-  :deep(.el-input__inner) {
-    color: #fff;
-  }
-  // 验证码
-  .code-font {
-    background-color: transparent;
-    color: #286de1;
-  }
-  :deep(.el-input-group__append) {
-    background: transparent;
-  }
-}
+@import "../form.scss";
 </style>

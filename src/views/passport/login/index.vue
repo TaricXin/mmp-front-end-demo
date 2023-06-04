@@ -1,88 +1,50 @@
 <template>
-  <div>
-    <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
-      <el-tab-pane label="密码登录" name="first">
-        <el-form :model="form" :rules="rules" ref="RedactForm">
-          <el-form-item prop="name">
-            <el-input
-              v-model.trim="form.name"
-              :prefix-icon="Message"
-              class="form-input"
-              :placeholder="$t('login.iemail')"
-              @keyup.enter.native="toPasswdFocus"
-            />
-          </el-form-item>
-          <el-form-item prop="passwd">
-            <el-input
-              v-model.trim="form.passwd"
-              :prefix-icon="Lock"
-              show-password
-              class="form-input"
-              :placeholder="$t('login.ipasswd')"
-              @keyup.enter.native="onSubmit"
-              ref="password"
-            />
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="onSubmit" class="signin">{{
-              $t("login.login")
-            }}</el-button>
-          </el-form-item>
-          <p style="display: flex; justify-content: space-between">
-            <router-link :to="{ name: 'Repassword' }" class="repasswd">
-              {{ $t("login.repasswd") }}?
-            </router-link>
-            <router-link :to="{ name: 'Register' }" class="register">
-              学生注册
-            </router-link>
-          </p>
-        </el-form>
-      </el-tab-pane>
-      <el-tab-pane label="短信登录" name="second">
-        <el-form :model="form" :rules="rules" ref="RedactForm">
-          <el-form-item prop="name">
-            <el-input
-              v-model.trim="form.name"
-              :prefix-icon="Message"
-              class="form-input"
-              :placeholder="$t('login.iphone')"
-              @keyup.enter.native="toPasswdFocus"
-            />
-          </el-form-item>
-          <el-form-item prop="passwd">
-            <el-col :span="14">
-              <el-form-item prop="date1">
-                <el-input
-                  v-model="form.passwd"
-                  placeholder="Pick a date"
-                  style="width: 100%"
-                />
-              </el-form-item>
-            </el-col>
-            <el-col :span="9" :offset="1">
-              <el-button type="primary" style="float: right"
-                >发送验证码</el-button
-              >
-            </el-col>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="onSubmit" class="signin">{{
-              $t("login.login")
-            }}</el-button>
-          </el-form-item>
-          <p style="display: flex; justify-content: space-between">
-            <router-link :to="{ name: 'Repassword' }" class="repasswd">
-              {{ $t("login.repasswd") }}?
-            </router-link>
-            <router-link :to="{ name: 'Register' }" class="register">
-              学生注册
-            </router-link>
-          </p>
-        </el-form>
-      </el-tab-pane>
-      <el-tab-pane label="扫码登录" name="third">
-      </el-tab-pane>
-    </el-tabs>
+  <div class="form_box">
+    <h3>登录您的账户</h3>
+    <el-form :model="form" :rules="rules" ref="RedactForm">
+      <el-form-item prop="name">
+        <el-input
+          v-model.trim="form.name"
+          :prefix-icon="User"
+          class="form-input"
+          :placeholder="$t('login.iemail')"
+          @keyup.enter.native="toPasswdFocus"
+        />
+      </el-form-item>
+      <el-form-item prop="passwd">
+        <el-input
+          v-model.trim="form.passwd"
+          :prefix-icon="Lock"
+          show-password
+          class="form-input"
+          :placeholder="$t('login.ipasswd')"
+          @keyup.enter.native="onSubmit"
+          ref="password"
+        />
+      </el-form-item>
+      <el-checkbox v-model="form.checked1" label="记住用户" />
+      <el-form-item>
+        <el-button type="primary" @click="onSubmit" class="sub_but">{{
+          $t("login.login")
+        }}</el-button>
+      </el-form-item>
+      <p class="actions">
+        <router-link :to="{ name: 'Register' }" class="routting">
+          立即注册
+        </router-link>
+        <router-link :to="{ name: 'Repassword' }" class="routting">
+          忘记密码？
+        </router-link>
+        <router-link :to="{ name: 'Dashboard' }" class="routting">
+          返回首页
+        </router-link>
+      </p>
+      <p class="separator"><span>第三方登录</span></p>
+      <div class="roads">
+        <img src="@/assets/passport/wechat_logo.png" alt="" />
+        <img src="@/assets/passport/qq_logo.png" alt="" />
+      </div>
+    </el-form>
   </div>
 </template>
 <script setup lang="ts">
@@ -93,7 +55,7 @@ import {
   ref,
 } from "vue";
 import { useRouter, useRoute } from "vue-router";
-import { Message, Lock } from "@element-plus/icons-vue";
+import { User, Lock } from "@element-plus/icons-vue";
 import { setLanguage, getLanguage, parseURLParams, getCookie } from "@/utils";
 import { handleRedirect } from "@/hooks/useLogin";
 // 导入 pinia 实例
@@ -116,6 +78,7 @@ const RedactForm = ref<any>();
 const form = reactive({
   name: "",
   passwd: "",
+  checked1: false,
 });
 
 const activeName = ref("first");
@@ -200,21 +163,5 @@ const switchLanguage = () => {
 };
 </script>
 <style scoped lang="scss">
-// 去除浏览器默认行为--改变输入框
-:deep(.el-input__inner:-webkit-autofill) {
-  box-shadow: inset 0px 100px #272727;
-  -webkit-text-fill-color: #fff;
-  caret-color: #fff; // 设置光标颜色
-}
-.boxs {
-  width: 100%;
-  height: 100%;
-}
-// 按键
-.signin {
-  width: 100%;
-}
-.form-input {
-  --el-input-height: 42px;
-}
+@import "../form.scss";
 </style>

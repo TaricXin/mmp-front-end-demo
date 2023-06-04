@@ -1,0 +1,137 @@
+// 去除浏览器默认行为--改变输入框
+:deep(.el-input__inner:-webkit-autofill) {
+    box-shadow             : inset 0px 100px #272727;
+    -webkit-text-fill-color: #fff;
+    caret-color            : #fff; // 设置光标颜色
+}
+
+.form_box {
+    --el-color-primary        : #f4a132;
+    --el-color-primary-light-3: #eebe77;
+    width                     : 467px;
+    // height: 622px;
+    background                : rgba(255, 255, 255, 0.8);
+    box-shadow                : 2px 8px 17px 4px rgba(114, 109, 105, 0.27);
+    border-radius             : 15px;
+    padding                   : 44px 46px 15px;
+
+    h3 {
+        font-size    : 24px;
+        font-family  : Adobe Heiti Std;
+        font-weight  : normal;
+        color        : #130b00;
+        opacity      : 0.8;
+        margin-bottom: 42px;
+    }
+
+    .actions {
+        display        : flex;
+        justify-content: space-between;
+        align-items    : center;
+        margin-top     : 37px;
+
+        .routting {
+            font-size  : 18px;
+            font-family: Adobe Heiti Std;
+            color      : #130b00;
+            opacity    : 0.8;
+        }
+    }
+
+    .separator {
+        position     : relative;
+        text-align   : center;
+        margin-bottom: 20px;
+        margin-top   : 48px;
+    }
+
+    .separator::before {
+        content   : "";
+        position  : absolute;
+        top       : 50%;
+        left      : 0;
+        right     : 0;
+        border-top: 1px solid #000;
+    }
+
+    .separator span {
+        background : #fff;
+        padding    : 0 24px;
+        position   : relative;
+        font-size  : 18px;
+        font-family: Adobe Heiti Std;
+        font-weight: normal;
+        color      : rgb(0 0 0 / 30%);
+        z-index    : 1;
+    }
+
+    .roads {
+        text-align: center;
+
+        img {
+            width : 42px;
+            height: 42px;
+            cursor: pointer
+        }
+
+        img+img {
+            margin-left: 52px;
+        }
+    }
+
+    // 按键
+    .sub_but {
+        width         : 100%;
+        border-radius : 14px;
+        height        : 49px;
+        line-height   : 49px;
+        font-size     : 20px;
+        font-family   : Adobe Heiti Std;
+        color         : #ffffff;
+        margin-top    : 16px;
+        letter-spacing: 11px;
+    }
+}
+
+
+
+.el-form-item {
+    margin-bottom: 19px;
+
+    .form-input {
+        --el-input-height       : 50px;
+        --el-input-border-radius: 14px;
+        --el-input-border-color : #b0b0b0;
+
+        :deep(.el-input__wrapper) {
+            padding    : 1px 28px;
+            font-size  : 18px;
+            color      : #010000;
+            font-family: Adobe Heiti Std;
+
+            .el-input__prefix-inner> :last-child {
+                margin-right: 21px;
+            }
+
+            .el-input__icon {
+                font-size: 22px;
+            }
+        }
+    }
+}
+
+
+
+:deep(.el-checkbox) {
+    --el-checkbox-input-height : 23px;
+    --el-checkbox-input-width  : 23px;
+    --el-checkbox-border-radius: 50%;
+
+    .el-checkbox__inner::after {
+        height      : 10px;
+        left        : 8px;
+        top         : 3px;
+        width       : 5px;
+        border-width: 2px;
+    }
+}

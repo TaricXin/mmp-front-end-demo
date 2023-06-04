@@ -1,15 +1,37 @@
 <template>
   <div class="boxs">
     <div class="main">
-      <!-- 国际化 -->
-      <div class="lang">
-      </div>
       <!-- logo -->
-      <!-- <div class="logo">
-        <el-image :src="Logo" fit="contain" />
-      </div> -->
+      <div class="logo">
+        <div>
+          <img
+            src="@/assets/passport/login_logo.png"
+            style="width: 453px; margin: 0 50px; max-width: 56%"
+          />
+          <div
+            style="
+              border-bottom: 1px dashed #130b00;
+              width: 603px;
+              margin-top: 84px;
+              max-width: 67%;
+            "
+          ></div>
+          <p
+            style="
+              font-size: 28px;
+              font-family: Adobe Heiti Std;
+              font-weight: normal;
+              color: #010000;
+              opacity: 0.4;
+              margin-top: 26px;
+            "
+          >
+            构建数字孪生底座 推动产业升级转型
+          </p>
+        </div>
+      </div>
       <!-- 表单 -->
-      <div style="background: #ffffff; padding: 16px">
+      <div class="passport_box">
         <RouterView />
       </div>
     </div>
@@ -17,16 +39,6 @@
 </template>
 <script setup lang="ts">
 import { ref } from "vue";
-import { setLanguage, getLanguage } from "@/utils";
-// 国际化
-const langValue = ref(getLanguage() || "cn");
-setLanguage(langValue.value);
-
-//切换国际化
-const switchLanguage = () => {
-  setLanguage(langValue.value);
-  window.location.reload();
-};
 </script>
 <style scoped lang="scss">
 // 去除浏览器默认行为--改变输入框
@@ -38,66 +50,28 @@ const switchLanguage = () => {
 .boxs {
   width: 100%;
   height: 100%;
-  background-color: #272727;
   display: flex;
   justify-content: center;
   // align-items: center;
+  overflow: auto;
 
   .main {
-    width: 300px;
-    margin-top: 240px;
-    background-color: #272727;
-    // 重置密码
-    // 按键
-    .signin {
-      width: 100%;
-    }
-    // // 输入框
-    // :deep(.el-input__wrapper) {
-    //   background-color: #272727;
-    //   color: #fff;
-    // }
-    // :deep(.el-input__inner) {
-    //   color: #fff;
-    // }
+    display: flex;
+    align-items: center;
+    padding-bottom: 24px;
+    max-width: 68vw;
+    width: 100%;
+    min-height: 622px;
     // logo
     .logo {
       display: flex;
-      justify-content: center;
+      align-items: center;
       padding: 10px 0;
+      flex: 1;
     }
-    // 国际化
-    .lang {
-      position: fixed;
-      top: 60px;
-      right: 400px;
-    }
-    .lang-box {
-      margin-bottom: 30px;
-      width: 100%;
-      position: relative;
-      box-sizing: border-box;
-      padding: 0 24px;
-      img {
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        left: 30px;
-        top: 8px;
-      }
-      select {
-        outline: none;
-        width: 100%;
-        height: 32px;
-        background: #262626;
-        font-size: 14px;
-        color: #aaaaaa;
-        padding: 0 24px;
-        border: 1px solid #484848;
-        option {
-          background: #484848;
-        }
-      }
+
+    .passport_box {
+      padding-right: 16px;
     }
   }
 }
